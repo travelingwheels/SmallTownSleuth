@@ -18,6 +18,11 @@ class ReviewsController < ApplicationController
     @reviews = Review.all
   end
 
+  def show
+    @review = Review.find_by_id(params[:id])
+    redirect_to reviews_path if !@review
+  end
+
   private
 
   def review_params
