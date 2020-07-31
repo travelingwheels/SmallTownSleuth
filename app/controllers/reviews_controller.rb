@@ -13,4 +13,14 @@ class ReviewsController < ApplicationController
       render :new
     end
   end
+
+  def index
+    @reviews = Review.all
+  end
+
+  private
+
+  def review_params
+    params.require(:review).permit(:content)
+  end
 end
