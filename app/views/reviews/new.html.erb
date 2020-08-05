@@ -1,7 +1,19 @@
 <h1>Create a new Review</h1>
 
 <%= form_for (@review) do |f| %>
+
+<%= f.label "Choose a town:" %>
+  <%= f.collection_select :town_id, Town.all, :id, :name, include_blank: true %>
+
+
+   <p>Or create a new Town:
+  <%= f.fields_for :town do |t|%>
+    <%= t.text_field :name%>
+  <% end %>
+  </p>
+
+  <br></br>
   <%= f.label :content %>
-  <%= f.text_field :content %>
+  <%= f.text_area :content %>
   <%= f.submit %>
 <% end %>
