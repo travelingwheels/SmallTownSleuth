@@ -2,7 +2,11 @@ class ReviewsController < ApplicationController
   before_action :redirect_if_not_logged_in
 
   def new
-    @review = Review.new
+    if params[:user_id] && @user = User.find_by_id([:user_id])
+      @review = @user.reviews.build
+    else
+      @review = Review.new
+    end
   end
 
   def create
@@ -16,6 +20,7 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.all
+    #@reviews = Reviews.includes(:user).all
   end
 
   def show
