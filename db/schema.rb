@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 2020_07_24_050126) do
 
   create_table "towns", force: :cascade do |t|
     t.string "name"
+    t.string "state"
+    t.string "amenities"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
