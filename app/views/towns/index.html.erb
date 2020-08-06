@@ -1,5 +1,9 @@
 <h1>All towns</h1>
 
+<ul>
+  <li>
 <% @towns.each do |town| %>
-  <%= town.name %>
+  <%= town.name %>,<%= town.state %>
 <% end %>
+  </li>
+</ul>
