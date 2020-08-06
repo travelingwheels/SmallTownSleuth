@@ -25,7 +25,7 @@ class TownsController < ApplicationController
   private
 
   def town_params
-    params.require(:town).permit(:name)
+    params.require(:town).permit(:name, :state, :amenities)
   end
 
 
