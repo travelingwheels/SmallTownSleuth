@@ -8,7 +8,7 @@ class TownsController < ApplicationController
   def create
     @town = current_user.towns.build(town_params)
     if @town.save
-      redirect_to towns_path
+      redirect_to town_path(@town)
     else
       render :new
     end
