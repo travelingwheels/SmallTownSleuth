@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+#include 'Faker'
+
+5.times do
+  Town.create(
+    name: Faker::Address.city,
+    state: Faker::Address.state_abbr
+  )
+end
