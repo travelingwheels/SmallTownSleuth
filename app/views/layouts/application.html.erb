@@ -12,7 +12,8 @@
   <body>
     <nav>
       <%= link_to "logout", logout_path, method: "delete" %> |
-      <%= link_to "New Town", new_town_path %>
+      <%= link_to "New Town", new_town_path %> |
+      <%= link_to "All Towns", towns_path %>
     </nav><br><br>
     <%= yield %>
   </body>
