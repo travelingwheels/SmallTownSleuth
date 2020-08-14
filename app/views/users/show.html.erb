@@ -1,1 +1,6 @@
 <h1>Welcome <%= @user.name %></h1>
+<br>
+
+<% @user.towns.each do |t| %>
+<li><%= t.name %>,<%= t.state %></li>
+<% end %>
