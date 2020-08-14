@@ -15,11 +15,11 @@ class TownsController < ApplicationController
   end
 
   def index
-    @towns = Town.all#.includes(:reviews)
+    @towns = Town.all.order(:state)
   end
 
   def show
-     @town = Town.find_by_id(params[:id])
+    @town = Town.find_by_id(params[:id])
   end
 
   private
@@ -27,6 +27,5 @@ class TownsController < ApplicationController
   def town_params
     params.require(:town).permit(:name, :state, :amenities)
   end
-
 
 end
