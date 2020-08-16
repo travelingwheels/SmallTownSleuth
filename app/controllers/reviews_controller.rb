@@ -22,13 +22,13 @@ class ReviewsController < ApplicationController
   end
 
   def index
-    @reviews = Review.all
+    @reviews = current_user.all
     #@reviews = Review.includes(:user).all
   end
 
   def show
     @review = Review.find_by_id(params[:id])
-    redirect_to town_review_path if !@review
+    redirect_to reviews_path if !@review
   end
 
   private
