@@ -12,11 +12,9 @@ Rails.application.routes.draw do
 
 
   resources :towns do
-    resources :reviews
+    resources :reviews, only: [:index, :new, :create]
   end
-  resources :users #do
-    #resources :reviews
-  #end
+  resources :users 
   resources :reviews
   resources :comments
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
