@@ -1,10 +1,13 @@
 <h1>Create a new Review</h1>
 
-<%= form_for (@review) do |f| %>
-
+<%= form_for @review do |f| %>
+  <% if @town %>
+   <p>Town: <%= @town.name %>, <%= @town.state %></p>
+   <%= f.hidden_field :town_id %>
+   <% else %>
   <%= f.label "Select a town to Review:" %>
-  <%= f.collection_select :town_id, Town.all, :id, :name, include_blank: true %>
-  Need to add State somehow
+  <%= f.collection_select :town_id, Town.all, :id, :formatted_name, include_blank: true %>
+
   <br>
     <br>
 
@@ -16,8 +19,9 @@
      <%= t.label :state %>
      <%= t.text_field :state, include_blank: true %><br>
   </p>
+    <% end %>
+   <% end %>
 
-  <% end %>
 
   <br>
     </br>
