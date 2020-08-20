@@ -2,18 +2,21 @@ class ReviewsController < ApplicationController
   before_action :redirect_if_not_logged_in
 
   def new
-    #if params[:user_id] && @user = User.find_by_id([:user_id])
-      #@review = @user.reviews.build
-      #@review.build_town
-    #else
+    if params[:town_id] && @town = Town.find_by_id(params[:town_id])
+      @review = @town.reviews.build
+    else
       @review = Review.new
       @review.build_town
-    #end
+    end
   end
 
   def create
+    if params[:town_id] && @town = Town.find_by_id(params[:town_id])
+      @review = @town.reviews.build(review_params)
+    else
+      @review = Review.new(review_params)
+    end
     #raise params.inspect
-    @review = Review.new(review_params)#current_user.reviews.build(review_params)
     if @review.save
       redirect_to review_path(@review)
     else
@@ -22,8 +25,11 @@ class ReviewsController < ApplicationController
   end
 
   def index
-    @reviews = current_user.all
-    #@reviews = Review.includes(:user).all
+    if params[:town_id] && town = Town.find_by_id(params[:town_id])
+      @reviews = town.reviews
+    else
+     @reviews = Review.all
+    end
   end
 
   def show
