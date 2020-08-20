@@ -1,8 +1,10 @@
 <h1>All Reviews</h1>
 <br>
   <br>
+  <div class="wrapper">
 <ul>
-  <% @reviews.each do |review| %>
-    <li><%= review.content %></li>
+  <% @reviews.each do |r| %>
+    <li><%= r.town.name %>,<%= r.town.state %> - <%= r.content %></li>
   <% end %>
 </ul>
+</div>
