@@ -2,7 +2,7 @@
 
 <%= form_for @review do |f| %>
   <% if @town %>
-   <p>Town: <%= @town.name %>, <%= @town.state %></p>
+   <p>Town: <%= @town.formatted_name %>
    <%= f.hidden_field :town_id %>
    <% else %>
   <%= f.label "Select a town to Review:" %>
