@@ -1,5 +1,5 @@
-<h1>Create a new Review</h1>
-
+<div class="header"><h1>Create a Review</h1></div>
+<div class="wrapper">
 <%= form_for @review do |f| %>
   <% if @town %>
    <p>Town: <%= @town.formatted_name %>
@@ -31,3 +31,4 @@
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.submit %>
 <% end %>
+</div>

@@ -15,8 +15,8 @@
       <%= link_to "logout", logout_path, method: "delete" %> |
       <%= link_to "My Page", user_path(current_user) %> |
       <%= link_to "Create A Review", new_review_path %> |
-      <%= link_to "All Towns", towns_path %>
-      <%= link_to "All Reviews", reviews_path %>
+      <%= link_to "Reviewed Towns list", towns_path %>
+      
       <% end %>
     </nav><br><br>
     <%= yield %>

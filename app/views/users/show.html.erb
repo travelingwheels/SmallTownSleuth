@@ -1,6 +1,7 @@
-<h1>Welcome <%= @user.name %></h1>
+<div class="header"><h1>Welcome <%= @user.name %></h1></div>
 <br>
-
+<div class="wrapper">
 <% @user.towns.each do |t| %>
-<li><%= t.name %>,<%= t.state %></li>
+ <li><%= t.formatted_name %></li>
 <% end %>
+</div>

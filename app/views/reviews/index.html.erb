@@ -1,10 +1,10 @@
-<h1>All Reviews</h1>
+<div class="header"><h1>All Reviews</h1></div>
 <br>
   <br>
   <div class="wrapper">
 <ul>
   <% @reviews.each do |r| %>
-    <li><%= r.town.name %>,<%= r.town.state %> - <%= r.content %></li>
+    <li><%= r.town.formatted_name %><br><%= r.content %><br>By: <%= r.user.name %><br><br></li>
   <% end %>
 </ul>
 </div>
