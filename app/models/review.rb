@@ -9,4 +9,8 @@ class Review < ApplicationRecord
    town = Town.find_or_create_by(town_params)
    town.valid? ? self.town = town : self.town
   end
+
+  def created_at_date_time
+    self.created_at.strftime("%A, %d %b %Y %l:%M %p")
+  end
 end

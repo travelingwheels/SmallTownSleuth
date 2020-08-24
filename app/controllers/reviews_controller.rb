@@ -12,11 +12,12 @@ class ReviewsController < ApplicationController
 
   def create
     if params[:town_id] && @town = Town.find_by_id(params[:town_id])
+      #raise params.inspect
       @review = @town.reviews.build(review_params)
     else
       @review = Review.new(review_params)
     end
-    #raise params.inspect
+     #raise params.inspect
     if @review.save
       redirect_to review_path(@review)
     else
@@ -25,8 +26,8 @@ class ReviewsController < ApplicationController
   end
 
   def index
-    if params[:town_id] && town = Town.find_by_id(params[:town_id])
-      @reviews = town.reviews
+    if params[:town_id] && @town = Town.find_by_id(params[:town_id])
+      @reviews = @town.reviews
     else
      @reviews = Review.all
     end
@@ -40,6 +41,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:content, :user_id, :town_id, town_attributes:[:name, :state, :amenities])
+    params.require(:review).permit(:content, :user_id, :town_id, town_attributes:[:name, :state])
   end
 end

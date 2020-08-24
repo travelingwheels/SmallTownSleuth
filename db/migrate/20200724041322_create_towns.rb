@@ -3,7 +3,6 @@ class CreateTowns < ActiveRecord::Migration[6.0]
     create_table :towns do |t|
       t.string :name
       t.string :state
-      t.string :amenities
 
       t.timestamps
     end
