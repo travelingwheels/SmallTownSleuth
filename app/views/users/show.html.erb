@@ -2,6 +2,7 @@
 <br>
 <div class="wrapper">
 <% @user.towns.each do |t| %>
- <li><%= t.formatted_name %></li>
+ <li><%= t.formatted_name %><br>
+ <%= link_to "Edit Review", edit_review_path(t) %></li><br><br>
 <% end %>
 </div>
