@@ -34,8 +34,22 @@ class ReviewsController < ApplicationController
   end
 
   def show
+    #raise params.inspect
     @review = Review.find_by_id(params[:id])
     redirect_to reviews_path if !@review
+  end
+
+  def edit
+    @review = Review.find_by(id: params[:id])
+  end
+
+  def update
+    @review = Review.find_by(id: params[:id])
+    if @review.update(review_params)
+      redirect_to review_path(@review)
+    else
+      render :edit
+    end
   end
 
   private
