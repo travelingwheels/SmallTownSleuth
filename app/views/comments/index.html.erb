@@ -1,5 +1,8 @@
 <h1>All Comments!</h1>
-
-<% @comments.each do |comment| %>
-  <%= comment.content %>
+<%= @review.town.formatted_name %><br><br>
+<%= @review.content %><br><br>
+<ul>
+<% @comments.each do |c| %>
+  <li><%= c.content %></li>
 <% end %>
+</ul>
