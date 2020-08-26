@@ -15,7 +15,9 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :new, :create]
   end
   resources :users 
-  resources :reviews
+  resources :reviews do
+    resources :comments, only: [:index, :new, :create]
+  end
   resources :comments
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
