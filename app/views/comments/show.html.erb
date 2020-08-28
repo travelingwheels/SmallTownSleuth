@@ -1,3 +1,6 @@
 <h2>Comment Show</h2>
 
-<%= @comment.content %>
+Review: <%= @comment.review.content %><br><br>
+
+Your Comment: <%= @comment.content %><br><br>
+<%= link_to "All Comments", review_comments_path(@comment.review_id) %>
