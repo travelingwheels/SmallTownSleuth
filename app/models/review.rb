@@ -1,7 +1,7 @@
 class Review < ApplicationRecord
   belongs_to :user
   belongs_to :town
-  has_many :comments
+  has_many :comments#, dependent: :destroy
 
   #accepts_nested_attributes_for :town
 
