@@ -41,6 +41,7 @@ class ReviewsController < ApplicationController
 
   def edit
     @review = Review.find_by(id: params[:id])
+    #raise params.inspect
   end
 
   def update
@@ -51,6 +52,11 @@ class ReviewsController < ApplicationController
       render :edit
     end
   end
+
+  #def destroy
+    #Review.find(params[:id]).destroy
+    #redirect_to reviews_path
+  #end
 
   private
 
