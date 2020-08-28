@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     end
     
     def create
-        if params[:review_id] && @review = Review.find_by_id(params[review_id])
+        if params[:review_id] && @review = Review.find_by_id(params[:review_id])
             @comment = @review.comments.build(comment_params)
         else
             @comment = Comment.new(comment_params)
@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
         end
       
         if @comment.save
-            redirect_to review_comments_path(@comment)
+            redirect_to comment_path(@comment)
         else
             render :new
        end
@@ -37,6 +37,7 @@ class CommentsController < ApplicationController
 
     def show
       @comment = Comment.find_by_id(params[:id])
+      redirect_to comments_path if !@comment
     end
 
 
