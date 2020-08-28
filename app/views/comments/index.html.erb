@@ -1,8 +1,11 @@
 <h1>All Comments!</h1>
-<%= @review.town.formatted_name %><br><br>
-<%= @review.content %><br><br>
+
+Town Name: <%= @review.town.formatted_name %><br><br>
+Review: <%= @review.content %><br><br>
+Comments:
+
 <ul>
 <% @comments.each do |c| %>
-  <li><%= c.content %></li>
+  <li><%= c.content %> By: <%= c.user.name %></li>
 <% end %>
 </ul>
