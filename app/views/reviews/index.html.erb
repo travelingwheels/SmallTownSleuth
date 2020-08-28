@@ -2,13 +2,12 @@
 <br>
   <br>
   <div class="wrapper">
-  <h3><%= @town.formatted_name %></h3>
-  <br>
-  <br>
+  
 <ul>
   <% @reviews.each do |r| %>
-    <li><%= r.content %><br>By: <%= r.user.name %><br>reviewed on: <%= r.created_at_date_time %><br>
-    <%= link_to "Leave a Comment", new_review_comment_path(r) %><br><br></li>
+    <li><%= r.town.formatted_name %><br><%= r.content %><br>By: <%= r.user.name %><br>reviewed on: <%= r.created_at_date_time %><br>
+    <%= link_to "Leave a Comment", new_review_comment_path(r) %> or 
+    <%= link_to "See All Comments", review_comments_path(r) %><br><br></li>
     <% end %>
 </ul>
 </div>
