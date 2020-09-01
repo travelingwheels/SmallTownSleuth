@@ -12,4 +12,5 @@ Comments:
   <li><%= c.content %><br> By: <%= c.user.name %><br><br></li>
   <% end %>
   <% end %>
+  <%= link_to "Add a Comment", new_review_comment_path(@review) %>
   </ul>
