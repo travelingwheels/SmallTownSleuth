@@ -28,6 +28,7 @@ class ReviewsController < ApplicationController
   def index
     if params[:town_id] && @town = Town.find_by_id(params[:town_id])
       @reviews = @town.reviews
+      #raise params.inspect
     else
      @reviews = Review.all
     end
