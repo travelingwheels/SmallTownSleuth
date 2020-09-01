@@ -4,4 +4,6 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :towns, through: :reviews
 
+  validates :name, :email, presence: true
+
 end
