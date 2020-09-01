@@ -1,8 +1,8 @@
 <div class="header"><h1>Welcome <%= @user.name %></h1></div>
 <br>
 <div class="wrapper">
+<h4>Here is the list of towns you have reviewed</h4><br><br>
 <% @user.towns.each do |t| %>
- <li><%= t.formatted_name %><br>
- <%= link_to "Edit Review", edit_review_path(t) %></li><br><br>
+ <li><%= t.formatted_name %></li><br>
 <% end %>
 </div>
