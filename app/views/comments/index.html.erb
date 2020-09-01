@@ -3,8 +3,13 @@
 Town Name: <%= @review.town.formatted_name %><br><br>
 Review :<%= @review.content %><br><br>
 Comments:
+<% if @comments.empty? %>
+  There doesn't seem to be any comments, 
+  To be the first to comment on this review click  <%= link_to "here", new_review_comment_path(@review) %> 
+  <% else %>
 <ul>
 <% @comments.each do |c| %>
   <li><%= c.content %><br> By: <%= c.user.name %><br><br></li>
+  <% end %>
   <% end %>
   </ul>
