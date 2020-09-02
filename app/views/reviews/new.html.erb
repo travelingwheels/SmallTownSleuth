@@ -2,6 +2,7 @@
 
 <div class="wrapper">
 <%= render partial: "layouts/errors", locals: { object: @review } %>
+
 <%= form_for @review do |f| %>
   <% if @town %>
    <p>Town: <%= @town.formatted_name %>

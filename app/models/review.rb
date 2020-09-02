@@ -4,7 +4,6 @@ class Review < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   validates :content, presence: true
-  validates_presence_of :town_id
 
   #accepts_nested_attributes_for :town
 
