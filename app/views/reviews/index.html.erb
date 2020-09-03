@@ -2,6 +2,10 @@
 <br>
   <br>
   <div class="wrapper">
+  Here are the top 5 most reviewed towns:
+  <% @reviews.most_popular.order_by_state.each do |t| %>
+    <%= t.formatted_name %>
+    <% end %><br><br>
   
   <% if @reviews.empty? %>
   There doesn't seem to be any reviews for <%= @town.formatted_name %>
