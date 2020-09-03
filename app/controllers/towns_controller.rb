@@ -1,5 +1,5 @@
 class TownsController < ApplicationController
-  before_action :redirect_if_not_logged_in
+ 
 
   def new
     @town = Town.new

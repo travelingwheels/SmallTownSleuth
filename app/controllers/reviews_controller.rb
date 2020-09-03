@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :redirect_if_not_logged_in
+  
 
   def new
     if params[:town_id] && @town = Town.find_by_id(params[:town_id])
