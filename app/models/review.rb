@@ -5,6 +5,8 @@ class Review < ApplicationRecord
 
   validates :content, presence: true
 
+  scope :most_popular, -> { Town.left_joins(:reviews).group(:id).order("count(reviews.town_id) desc").limit(5)}
+  
   #accepts_nested_attributes_for :town
 
   def town_attributes=(town_params)
