@@ -2,7 +2,8 @@
 <br>
 <div class="wrapper">
 <h4>Here is the list of towns you have reviewed</h4><br><br>
-<% @user.towns.each do |t| %>
+
+<% @user.towns.order_by_state.each do |t| %>
  <li><%= t.formatted_name %></li><br>
 <% end %>
 </div>
