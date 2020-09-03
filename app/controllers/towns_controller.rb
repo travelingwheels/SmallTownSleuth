@@ -15,7 +15,7 @@ class TownsController < ApplicationController
   end
 
   def index
-    @towns = Town.all.order(:state)
+    @towns = Town.order_by_state
   end
 
   def show
