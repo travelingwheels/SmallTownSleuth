@@ -9,7 +9,7 @@
    <%= f.hidden_field :town_id %>
    <% else %>
   <%= f.label :town_id,  "Select a town to Review:" %>
-  <%= f.collection_select :town_id, Town.all, :id, :formatted_name, include_blank: true %>
+  <%= f.collection_select :town_id, Town.order_by_state, :id, :formatted_name, include_blank: true %>
 
   <br>
     <br>
