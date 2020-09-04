@@ -1,11 +1,5 @@
 <h2>Edit Comment</h2>
 
-<%= form_for @comment do |f| %>
+<%= render partial: "layouts/errors", locals: { object: @comment } %>
 
-    <%= f.label :content %>
-    <%= f.text_field :content %>
-    <br></br>
-  
-   
-    <%= f.submit%>
-    <% end %>
+<%= render "form" %>
