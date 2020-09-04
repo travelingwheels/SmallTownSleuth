@@ -1,4 +1,5 @@
 class TownsController < ApplicationController
+  before_action :set_town, only: [:show]
  
 
   def new
@@ -19,13 +20,16 @@ class TownsController < ApplicationController
   end
 
   def show
-    @town = Town.find_by_id(params[:id])
   end
 
   private
 
   def town_params
     params.require(:town).permit(:name, :state, :amenities)
+  end
+
+  def set_town
+    @town = Town.find_by_id(params[:id])
   end
 
 end

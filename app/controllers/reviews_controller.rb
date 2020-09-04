@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :set_review, only: [:show, :edit, :update]
   
 
   def new
@@ -12,15 +13,14 @@ class ReviewsController < ApplicationController
 
   def create
     if params[:town_id] && @town = Town.find_by_id(params[:town_id])
-      #raise params.inspect
       @review = @town.reviews.build(review_params)
     else
       @review = Review.new(review_params)
     end
-     #raise params.inspect
     if @review.save
       redirect_to review_path(@review)
     else
+      @review.build_town
       render :new
     end
   end
@@ -28,25 +28,18 @@ class ReviewsController < ApplicationController
   def index
     if params[:town_id] && @town = Town.find_by_id(params[:town_id])
       @reviews = @town.reviews
-      #raise params.inspect
     else
      @reviews = Review.all
     end
   end
 
   def show
-    #raise params.inspect
-    @review = Review.find_by_id(params[:id])
-    redirect_to reviews_path if !@review
   end
 
   def edit
-    @review = Review.find_by(id: params[:id])
-    #raise params.inspect
   end
 
   def update
-    @review = Review.find_by(id: params[:id])
     if @review.update(review_params)
       redirect_to review_path(@review)
     else
@@ -63,5 +56,10 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:content, :user_id, :town_id, town_attributes:[:name, :state])
+  end
+
+  def set_review
+    @review = Review.find_by(id: params[:id])
+    redirect_to reviews_path if !@review
   end
 end
