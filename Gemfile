@@ -35,7 +35,7 @@ gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
 
 #bootstrap
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 
 group :development, :test do
