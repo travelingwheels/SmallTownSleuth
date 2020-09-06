@@ -4,29 +4,9 @@
 <%= render partial: "layouts/errors", locals: { object: @review } %>
 
 <%= form_for @review do |f| %>
-  <% if @town %>
-   <p>Town: <%= @town.formatted_name %>
-   <%= f.hidden_field :town_id %>
-   <% else %>
-  <%= f.label :town_id,  "Select a town to Review:" %>
-  <%= f.collection_select :town_id, Town.order_by_state, :id, :formatted_name, include_blank: true %>
-
-  <br>
-    <br>
-
-   <h3>Or create a new Town:</h3>
-   <p><%= f.fields_for :town do |t|%>
-     <%= t.label :name %>
-     <%= t.text_field :name, include_blank: true %>
-
-     <%= t.label :state %>
-     <%= t.text_field :state, include_blank: true %><br>
-  </p>
-    <% end %>
-   <% end %>
-
-
-  <br>
+ 
+  <%= town_name_option(f) %>
+   <br>
     </br>
   <%= f.label :review %>
   <br>
