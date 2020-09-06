@@ -6,11 +6,8 @@
   <% @reviews.most_popular.order_by_state.each do |t| %>
     <%= t.formatted_name %>
     <% end %><br><br>
-  
-  <% if @reviews.empty? %>
-  There doesn't seem to be any reviews for <%= @town.formatted_name %>
-  To be the first to review it click  <%= link_to "here",  new_town_review_path(@town) %> 
-  <% else %>
+  <%= check_if_empty %>
+  <%=  %>
   <ul>
   <% @reviews.each do |r| %>
     <li><%= r.town.formatted_name %><br><%= r.content %><br>By: <%= r.user.name %><br>reviewed on: <%= r.created_at_date_time %><br>
@@ -20,6 +17,6 @@
     <%= link_to "Edit Review", edit_review_path(r) %>
     <% end %><br><br>
     <% end %>
-    <% end %>
+    
 </ul>
 </div>
