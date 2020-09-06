@@ -1,0 +1,17 @@
+<%= f.label :town_id,  "Select a town to Review:" %>
+<%= f.collection_select :town_id, Town.order_by_state, :id, :formatted_name, include_blank: true %>
+
+ <br>
+  <br>
+
+ <h3>Or create a new Town:</h3>
+
+ <p><%= f.fields_for :town do |t|%>
+
+   <%= t.label :name %>
+   <%= t.text_field :name, include_blank: true %>
+
+   <%= t.label :state %>
+   <%= t.text_field :state, include_blank: true %><br>
+ </p>
+<% end %>
