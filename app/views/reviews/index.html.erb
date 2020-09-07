@@ -7,16 +7,18 @@
     <%= t.formatted_name %>
     <% end %><br><br>
   <%= check_if_empty %>
-  <%=  %>
+  
   <ul>
+  <div class="container">
   <% @reviews.each do |r| %>
     <li><%= r.town.formatted_name %><br><%= r.content %><br>By: <%= r.user.name %><br>reviewed on: <%= r.created_at_date_time %><br>
     <%= link_to "See All Comments", review_comments_path(r) %> or 
-    <%= link_to "Leave a Comment", new_review_comment_path(r) %><br></li>
+    <%= link_to "Leave a Comment", new_review_comment_path(r) %><br></li><div>
     <% if current_user.id == r.user.id %>
     <%= link_to "Edit Review", edit_review_path(r) %>
     <% end %><br><br>
     <% end %>
     
 </ul>
+
 </div>

@@ -1,5 +1,5 @@
 <h1>All Comments!</h1>
-
+<div class="container">
 Town Name: <%= @review.town.formatted_name %><br><br>
 Review :<%= @review.content %><br><br>
 Comments:
@@ -10,3 +10,4 @@ Comments:
   <% end %>
   <%= link_to "Add a Comment", new_review_comment_path(@review) %>
 </ul>
+</div>
