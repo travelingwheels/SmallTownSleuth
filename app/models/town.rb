@@ -4,10 +4,9 @@ class Town < ApplicationRecord
 
   validates :name, :state, presence: true
 
-  scope :order_by_state, -> {order(:state)}
+  scope :order_by_state, -> { order(:state) }
 
   def formatted_name
     "#{name}, #{state}"
   end
-
 end

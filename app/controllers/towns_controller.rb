@@ -1,6 +1,5 @@
 class TownsController < ApplicationController
   before_action :set_town, only: [:show]
- 
 
   def new
     @town = Town.new
@@ -31,5 +30,4 @@ class TownsController < ApplicationController
   def set_town
     @town = Town.find_by_id(params[:id])
   end
-
 end

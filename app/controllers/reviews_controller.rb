@@ -1,6 +1,5 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update]
-  
 
   def new
     if params[:town_id] && @town = Town.find_by_id(params[:town_id])
@@ -29,7 +28,7 @@ class ReviewsController < ApplicationController
     if params[:town_id] && @town = Town.find_by_id(params[:town_id])
       @reviews = @town.reviews
     else
-     @reviews = Review.all
+      @reviews = Review.all
     end
   end
 
@@ -55,7 +54,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:content, :user_id, :town_id, town_attributes:[:name, :state])
+    params.require(:review).permit(:content, :user_id, :town_id, town_attributes: [:name, :state])
   end
 
   def set_review
