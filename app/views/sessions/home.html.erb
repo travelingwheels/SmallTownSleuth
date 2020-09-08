@@ -1,9 +1,14 @@
-<h1>Welcome!</h1>
-
+<div class="header"><h1>Welcome to Small Town Sleuth</h1></div>
+ 
+<div class="center">
 <button type="button" class="btn btn-warning">
 <%= link_to "Sign Up!", signup_path %>
 <button>
+
 <button type="button" class="btn btn-warning">
 <%= link_to "login", login_path %>
 <button>
-<%= link_to "Log In with Google", '/auth/google_oauth2' %>
+<button class="btn google-btn social-btn" type="button"><span>
+<%= link_to "Log In with Google", '/auth/google_oauth2' %></span> </button>
+</div>
+
