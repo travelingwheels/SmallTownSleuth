@@ -15,7 +15,9 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to user_path(user)
     else
-      redirect_to "/login"
+      flash[:message] = "We're sorry, but we couldn't validate your credentials,
+      please signup or try logging in again"
+      redirect_to login_path
     end
   end
 
