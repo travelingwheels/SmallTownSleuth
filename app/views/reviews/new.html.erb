@@ -3,8 +3,8 @@
 <div class="wrapper">
 <%= render partial: "layouts/errors", locals: { object: @review } %>
 
-<%= form_for @review do |f| %>
- 
+<%= form_for [@town, @review] do |f| %>
+  <%= f.hidden_field :town_id, value: @town.id %>
   <%= town_name_option(f) %>
    <br>
     </br>
