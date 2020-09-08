@@ -4,6 +4,8 @@ class Review < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   validates :content, presence: true
+  validates :user_id, :uniqueness => { :scope => :town_id,
+    :message => " may only write one review per town." }
 
   scope :most_popular, -> { Town.left_joins(:reviews).group(:id).order("count(reviews.town_id) desc").limit(5) }
 
