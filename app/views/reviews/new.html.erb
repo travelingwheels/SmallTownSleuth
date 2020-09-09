@@ -4,7 +4,7 @@
 <%= render partial: "layouts/errors", locals: { object: @review } %>
 
 <%= form_for [@town, @review] do |f| %>
-  <%= f.hidden_field :town_id, value: @town.id %>
+  <%= f.hidden_field :town_id %>
   <%= town_name_option(f) %>
    <br>
     </br>
