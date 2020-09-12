@@ -36,6 +36,7 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    #raise params.inspect
   end
 
   def update
