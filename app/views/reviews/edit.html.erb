@@ -2,8 +2,8 @@
 
 <div class="wrapper">
 <%= form_for @review do |f| %>
-    <%= f.label :content %>
-    <%= f.text_field :content %>
+    <%= f.label :review %>:<br>
+    <%= f.text_area :content, size: "50x10" %>
     <br></br>
     <%= f.submit%>
 <% end %>
