@@ -1,7 +1,7 @@
 <div class="header"><h1>All towns</h1></div>
 
 <div class="wrapper">
-<% @towns.each do |town| %>
+<% @towns.order_by_state.each do |town| %>
   <li><%= town.formatted_name %><br>
     <%= link_to "See The Reviews", town_reviews_path(town) %> |
     <%= link_to "Add Your Review",  new_town_review_path(town) %><br><br></li>

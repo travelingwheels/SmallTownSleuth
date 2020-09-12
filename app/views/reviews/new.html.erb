@@ -8,7 +8,7 @@
   <%= town_name_option(f) %>
    <br>
     </br>
-  <%= f.label :review %>
+  <%= f.label :review %>:
   <br>
   <%= f.text_area :content, size: "50x10" %>
   <%= f.hidden_field :user_id, value: current_user.id %>
