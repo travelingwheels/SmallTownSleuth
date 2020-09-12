@@ -1,7 +1,7 @@
 
 
 <%= form_for  @comment do |f| %>
-    <%= f.label :content %><br>
+    <%= f.label :comment %><br>
     <%= f.text_area :content, size: "50x10" %>
     <%= f.hidden_field :review_id %>
     <%= f.hidden_field :user_id, value: current_user.id %>
