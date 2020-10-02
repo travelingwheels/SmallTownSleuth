@@ -7,6 +7,8 @@ class User < ApplicationRecord
   validates :name, :email, presence: true
   validates_uniqueness_of :email
 
+  scope :top_reviewers, -> {left_joins(:reviews).group("reviews.user_id").order("count(reviews.user_id) desc").limit(2)}
+
   def self.from_omniauth(auth)
     where(email: auth.info.email).first_or_initialize do |user|
       user.name = auth.info.name

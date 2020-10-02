@@ -20,6 +20,10 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:id])
   end
 
+  def top_reviewers
+    @user = User.top_reviewers
+  end
+
   private
 
   def user_params

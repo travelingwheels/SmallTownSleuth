@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
 
+  get '/top_reviewers' => 'users#top_reviewers'
   get '/login' => 'sessions#new'
   post 'login' => 'sessions#create'
   get '/auth/:provider/callback' => 'sessions#omniauth'
